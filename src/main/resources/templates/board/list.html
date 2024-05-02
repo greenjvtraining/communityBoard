@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="${'List Page'}"></h1>
+<hr>
+<div>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th><th>제목</th><th>작성자</th><th>작성일자</th><th>수정일자</th><th>대상</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="board : ${list}">
+				<td>[[${board.bno}]]</td>
+				<td><a th:href="@{/board/detail/{bno}(bno=${board.bno})}">[[${board.title}]]</a></td>
+				<td>[[${board.writer}]]</td>
+				<td>[[${board.regdate}]]</td>
+				<td>[[${board.modifydate}]]</td>
+				<td>[[${board.targetBno}]]</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
